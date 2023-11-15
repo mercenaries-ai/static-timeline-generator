@@ -57,9 +57,9 @@
             </h2>
             <% if (entry.image) { %>
             <div class="captioned-image image-right">
-              <% if (entry.image.link) { %><a href="<%= entry.image.link %>"
+              <% if (entry.image.link) { %><a href="<%= entry.image.link %>" target="_blank"
                 ><% } %>
-                <img src="<%= entry.image.src %>" alt="<%= entry.image.src %>" />
+                <img src="<%= entry.image.src %>" alt="<%= entry.image.src %>" target="_blank" />
                 <% if (entry.image.link) { %></a
               ><% } %> <% if (entry.image.caption) { %>
               <span class="caption"><%- entry.image.caption %></span>
