@@ -1,6 +1,11 @@
 const fs = require('fs');
 const marked = require('marked');
- 
+const mdRenderer = new marked.Renderer();
+mdRenderer.link = function (_href, _title, _text) {
+  const link = marked.Renderer.prototype.link.apply(this, arguments);
+  return link.replace('<a', "<a target='_blank'");
+};
+
 const header = 'Omnitool Newsfeed';
 const footer = '(c) 2023 MERCENARIES.AI PTE. LTD. All rights reserved.';
 
@@ -10,7 +15,7 @@ let entries = yaml.load(fs.readFileSync('../../updates.yaml', 'utf8')).reverse()
 
 // use marked to render markdown
 entries = entries.map((entry) => {
-  entry.html = marked.parse(entry.body);
+  entry.html = marked.parse(entry.body, {renderer: mdRenderer});
   return entry;
 })
 
