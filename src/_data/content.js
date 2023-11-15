@@ -1,16 +1,16 @@
 const fs = require('fs');
 
-const header = 'Welcome to this wonderful example timeline.';
-const footer = 'A footer goes here.';
+const header = 'Omnitool Newsfeed';
+const footer = '(c) 2023 MERCENARIES.AI PTE. LTD. All rights reserved.';
 
 //load entries.js from yaml using js-yaml
 const yaml = require('js-yaml');
-const entries = yaml.load(fs.readFileSync('../../updates.yaml', 'utf8'));
+const entries = yaml.load(fs.readFileSync('../../updates.yaml', 'utf8')).reverse();
 
 // Page details
-const pageTitle = 'Static timeline generator'; // The title of the page that shows in the browser tab
-const pageDescription = 'A super fancy timeline'; // The description of the page for search engines
-const pageAuthor = 'Jane Doe'; // Your name
+const pageTitle = 'Omnitool Newsfeed'; // The title of the page that shows in the browser tab
+const pageDescription = 'Omnitool news, changes and updates.'; // The description of the page for search engines
+const pageAuthor = 'Omnitool.ai Team'; // Your name
 
 // DON'T EDIT BELOW THIS LINE! --------------------------------------------------------------------
 const getFilters = (entries) => {
@@ -24,7 +24,7 @@ const getFilters = (entries) => {
     }
   }
   var filtersArray = [...filters];
-  filtersArray.sort();
+  filtersArray.sort()
   return filtersArray;
 };
 
