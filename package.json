@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "serve": "npx @11ty/eleventy --serve",
-    "build": "npx @11ty/eleventy",
+    "build": "npx @11ty/eleventy --output=../../public",
     "prettier": "prettier --write .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -33,5 +33,8 @@
     "eslint-plugin-prettier": "^4.0.0",
     "moment": "^2.29.1",
     "postcss": "^8.4.20"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
   }
 }
