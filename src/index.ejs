@@ -4,8 +4,8 @@
     <%- include('/head', {head: content.head}) %>
   </head>
   <body>
-    <% if (content.header) { %>
-    <header class="page-header">
+    <% if (content.header) { %> 
+    <header class="page-header hidden">
       <% if (!utilities.isWrappedInParagraphTags(content.header)) { %>
       <p>
         <% } %> <%- content.header %> <% if (!utilities.isWrappedInParagraphTags(content.header)) {

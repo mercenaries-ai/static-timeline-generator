@@ -51,7 +51,7 @@ const addCategoriesStringsToEntries = (entries) => {
 };
 
 module.exports = {
-  header,
+  /*header,*/
   footer,
   entries: addCategoriesStringsToEntries(entries),
   filters: getFilters(entries),
