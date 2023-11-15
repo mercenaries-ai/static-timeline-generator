@@ -1,11 +1,19 @@
 const fs = require('fs');
-
+const marked = require('marked');
+ 
 const header = 'Omnitool Newsfeed';
 const footer = '(c) 2023 MERCENARIES.AI PTE. LTD. All rights reserved.';
 
 //load entries.js from yaml using js-yaml
 const yaml = require('js-yaml');
-const entries = yaml.load(fs.readFileSync('../../updates.yaml', 'utf8')).reverse();
+let entries = yaml.load(fs.readFileSync('../../updates.yaml', 'utf8')).reverse();
+
+// use marked to render markdown
+entries = entries.map((entry) => {
+  entry.html = marked.parse(entry.body);
+  return entry;
+})
+
 
 // Page details
 const pageTitle = 'Omnitool Newsfeed'; // The title of the page that shows in the browser tab
