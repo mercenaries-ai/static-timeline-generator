@@ -2,7 +2,10 @@ const fs = require('fs');
 
 const header = 'Welcome to this wonderful example timeline.';
 const footer = 'A footer goes here.';
-const entries = JSON.parse(fs.readFileSync('../../updates.json', 'utf8'))
+
+//load entries.js from yaml using js-yaml
+const yaml = require('js-yaml');
+const entries = yaml.load(fs.readFileSync('../../updates.yaml', 'utf8'));
 
 // Page details
 const pageTitle = 'Static timeline generator'; // The title of the page that shows in the browser tab
